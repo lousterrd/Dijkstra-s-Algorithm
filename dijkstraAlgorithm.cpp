@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <limits.h>
+#include <iostream>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ int minDistance(int dist[], bool sptSet[])
   {
     if (sptSet[v] == false && dist[v] <= min)
     {
-      min = dst[v], min_index = v;
+      min = dist[v], min_index = v;
     }
   }
   return min_index;
