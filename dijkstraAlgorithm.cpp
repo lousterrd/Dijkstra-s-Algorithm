@@ -90,7 +90,13 @@ int main()
 
 
 
-  int graph[V][V] = {};
+  int graph[V][V] = { {0, AB, AC, AD, AE}, // At A
+                      {AB, 0, BC, BD, BE}, // At B
+                      {AC, BC, 0, CD, CE}, // At C
+                      {AD, BD, CD, 0, DE}, // At D
+                      {AE, BE, CE, DE, 0}  // At E
+                    };
+
 
 
   dijkstra(graph, reno);
