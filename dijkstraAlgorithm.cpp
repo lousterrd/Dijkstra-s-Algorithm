@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -23,7 +24,7 @@ int minDistance(int dist[], bool sptSet[])
 }
 
 
-int printSolution(int dist[], int n)
+void printSolution(int dist[], int n)
 {
   cout << ("Vertex Distance from Source\n");
   for (int i = 0; i < n; i++)
@@ -64,6 +65,40 @@ void dijkstra(int graph[V][V], int src)
 }
 
 
+
+int TSP(int graph[V][V], int src)
+{
+  vector<int> vertex;
+    for (int i = 0; i < V; i++)
+        if (i != src)
+            vertex.push_back(i);
+
+
+    int minPath = INT_MAX;
+    for (int cnt = 0; cnt < vertex.size(); cnt++)
+    {
+
+        int currentWeight = 0;
+
+        int k = src;
+        for (int i = 0; i < vertex.size(); i++) {
+            currentWeight += graph[k][vertex[i]];
+            k = vertex[i];
+        }
+        currentWeight += graph[k][src];
+
+        // update minimum
+        minPath = min(minPath, currentWeight);
+
+    } //while (next_permutation(vertex.begin(), vertex.end()));
+
+    return minPath;
+  }
+
+
+
+
+
 int main()
 {
   // Cities as integers
@@ -100,7 +135,7 @@ int main()
 
 
 
-  dijkstra(graph, reno);
+  cout << TSP(graph, reno);
 
 
 
