@@ -34,7 +34,32 @@ int printSolution(int dist[], int n)
 
 void dijkstra(int graph[V][V], int src)
 {
+  int dist[V];
 
+  bool sptSet[V];
+
+  for (int i = 0; i < V; i++)
+  {
+    dist[i] = INT_MAX, sptSet[i] = false;
+  }
+
+  dist[src] = 0;
+
+  for (int cnt = 0; cnt < V - 1; cnt++)
+  {
+    int u = minDistance(dist, sptSet);
+    sptSet[u] = true;
+
+    for (int v = 0; v < V; v++)
+    {
+      if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX &&
+        (dist[u] + graph[u][v]) < dist[v])
+        {
+          dist[v] = dist[u] + graph[u][v];
+        }
+    }
+  }
+  printSolution(dist, V);
 }
 
 
@@ -51,21 +76,21 @@ int main()
   const int AB = 218;
   const int AC = 518;
   const int AD = 704;
-  const int AE = ;
+  const int AE = 439;
 
-  const int BC = ;
-  const int BD = ;
-  const int BE = ;
+  const int BC = 736;
+  const int BD = 808;
+  const int BE = 569;
 
-  const int CD = ;
-  const int CE = ;
+  const int CD = 840;
+  const int CE = 421;
 
-  const int DE = ;
-
-
+  const int DE = 1115;
 
 
-  int graph[V][V];
+
+
+  int graph[V][V] = {};
 
 
   dijkstra(graph, reno);
