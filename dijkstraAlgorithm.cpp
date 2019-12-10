@@ -40,16 +40,17 @@ void dijkstra(int graph[V][V], int src)
 
 int main()
 {
-  const int aReno = 0;           // A
-  const int bSanFrancisco = 1;   // B
-  const int csaltLakeCity = 2;   // C
-  const int dSeattle = 3;        // D
-  const int eLasVegas = 4;       // E
+  // Cities as integers
+  const int reno = 0;           // A
+  const int sanFrancisco = 1;   // B
+  const int saltLakeCity = 2;   // C
+  const int seattle = 3;        // D
+  const int lasVegas = 4;       // E
 
   //Cost Variables
-  const int AB = ;
-  const int AC = ;
-  const int AD = ;
+  const int AB = 218;
+  const int AC = 518;
+  const int AD = 704;
   const int AE = ;
 
   const int BC = ;
